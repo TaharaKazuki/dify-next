@@ -43,6 +43,7 @@ export function useWorkflowStream() {
 
       eventSourceRef.current = eventSource;
     } catch (error) {
+      console.error('API呼び出しエラー', error);
       setOutput('エラーが発生しました');
     }
   };

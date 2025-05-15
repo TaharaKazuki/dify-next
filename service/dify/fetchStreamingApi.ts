@@ -16,9 +16,6 @@ type EventSourceType = {
   [key: string]: unknown;
 };
 
-/**
- * Difyワークフロー実行のストリーミングAPIを呼び出す
- */
 export const fetchDifyStreamingApi = (
   input: string,
   onMessage: EventHandler,
