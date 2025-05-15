@@ -15,7 +15,7 @@ import { callDifyBlockingApi } from '@/service/dify/callDifyBlockingApi';
 
 import { Textarea } from './ui/textarea';
 
-export default function WorkflowBlocking() {
+export default function WorkflowStreaming() {
   const [input, setInput] = useState<string>('');
   const [output, setOutput] = useState<string>('');
   const [isPending, startTransition] = useTransition();

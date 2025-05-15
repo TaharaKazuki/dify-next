@@ -1,6 +1,6 @@
 const NEXT_API_ROUTE = '/api/workflow-block';
 
-export const callDifyApi = async (input: string) => {
+export const callDifyBlockingApi = async (input: string) => {
   if (!input.trim()) return;
 
   try {
