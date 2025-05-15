@@ -1,6 +1,8 @@
 const NEXT_API_ROUTE = '/api/workflow-block';
 
-export const fetchDifyBlockingApi = async (input: string) => {
+export const fetchDifyBlockingApi = async (
+  input: string
+): Promise<string | undefined> => {
   if (!input.trim()) return;
 
   try {
@@ -14,7 +16,7 @@ export const fetchDifyBlockingApi = async (input: string) => {
       }),
     });
 
-    const result = await response.json();
+    const result = (await response.json()) as string;
     return result;
   } catch (error) {
     console.error('API接続に失敗', error);
