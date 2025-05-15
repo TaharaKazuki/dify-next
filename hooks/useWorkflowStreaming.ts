@@ -31,7 +31,6 @@ export function useWorkflowStream() {
     completeTextRef.current = '';
 
     if (eventSourceRef.current) {
-      console.info('通過');
       eventSourceRef.current.close();
     }
 
@@ -44,13 +43,11 @@ export function useWorkflowStream() {
 
       eventSourceRef.current = eventSource;
     } catch (error) {
-      console.error('API呼び出しエラー', error);
       setOutput('エラーが発生しました');
     }
   };
 
   const handleEventData = (eventData: EventSourceType) => {
-    console.log('イベント受信', eventData.event);
     if (eventData.event === 'text_chunk') {
       appendText(eventData.data.text as string);
     }
