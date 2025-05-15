@@ -40,7 +40,6 @@ export default function WorkflowBlocking() {
         <CardDescription>シンプルなワークフロー</CardDescription>
       </CardHeader>
       <CardContent>
-        {/* 入力エリア */}
         <Textarea
           placeholder="質問を入力してください"
           value={input}
@@ -49,7 +48,6 @@ export default function WorkflowBlocking() {
           className="mb-8 w-full text-base md:text-base"
           disabled={isPending}
         />
-        {/* 出力エリア */}
         {output && (
           <div className="rounded-md bg-gray-100 p-4">
             <h3 className="mb-2 text-sm font-medium">回答:</h3>
