@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { useWorkflowStream } from '@/hooks/useWorkflowStream';
+import { useWorkflowStream } from '@/hooks/useWorkflowStreaming';
 
 import { Textarea } from './ui/textarea';
 

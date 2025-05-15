@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { callDifyWorkflowStreamingApi } from '../service/dify/callDifyWorkflowStreamingApi';
+import { fetchDifyStreamingApi } from '../service/dify/fetchStreamingApi';
 
 type EventSourceType = {
   event: string;
@@ -36,7 +36,7 @@ export function useWorkflowStream() {
     }
 
     try {
-      const { eventSource } = callDifyWorkflowStreamingApi(
+      const { eventSource } = fetchDifyStreamingApi(
         input,
         handleEventData,
         () => setOutput('エラーが発生しました')

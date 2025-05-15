@@ -19,7 +19,7 @@ type EventSourceType = {
 /**
  * Difyワークフロー実行のストリーミングAPIを呼び出す
  */
-export const callDifyWorkflowStreamingApi = (
+export const fetchDifyStreamingApi = (
   input: string,
   onMessage: EventHandler,
   onClose?: () => void
