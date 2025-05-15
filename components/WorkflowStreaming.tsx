@@ -1,7 +1,5 @@
 'use client';
 
-import { useState, useTransition } from 'react';
-
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -11,27 +9,12 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { callDifyBlockingApi } from '@/service/dify/callDifyBlockingApi';
+import { useWorkflowStream } from '@/hooks/useWorkflowStream';
 
 import { Textarea } from './ui/textarea';
 
 export default function WorkflowStreaming() {
-  const [input, setInput] = useState<string>('');
-  const [output, setOutput] = useState<string>('');
-  const [isPending, startTransition] = useTransition();
-
-  const handleSubmit = () => {
-    startTransition(async () => {
-      try {
-        const result = await callDifyBlockingApi(input);
-        setOutput(result);
-      } catch (error) {
-        setOutput(
-          `エラーが発生しました: ${error instanceof Error ? error.message : String(error)}`
-        );
-      }
-    });
-  };
+  const { input, setInput, output, callDifyStreamingApi } = useWorkflowStream();
 
   return (
     <Card className="mx-auto w-full max-w-4xl">
@@ -46,7 +29,6 @@ export default function WorkflowStreaming() {
           onChange={(e) => setInput(e.target.value)}
           rows={4}
           className="mb-8 w-full text-base md:text-base"
-          disabled={isPending}
         />
         {output && (
           <div className="rounded-md bg-gray-100 p-4">
@@ -58,12 +40,8 @@ export default function WorkflowStreaming() {
         )}
       </CardContent>
       <CardFooter>
-        <Button
-          onClick={handleSubmit}
-          className="w-full"
-          disabled={isPending || !input.trim()}
-        >
-          {isPending ? '送信中...' : '送信'}
+        <Button onClick={callDifyStreamingApi} className="w-full">
+          送信
         </Button>
       </CardFooter>
     </Card>

@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
         inputs: {
           query: query,
         },
-        response_mode: 'blocking',
+        response_mode: 'streaming',
         user: 'user-123',
       }),
     });
