@@ -26,7 +26,7 @@
   "prettier.configPath": ".prettierrc",
   "prettier.requireConfig": true,
   "prettier.documentSelectors": ["**/*.{ts,tsx,js,jsx,css,scss,html}"],
-  "cSpell.words": [],
+  "cSpell.words": ["Dify"],
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   },
