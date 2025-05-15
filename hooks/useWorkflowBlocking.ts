@@ -13,7 +13,7 @@ export const useWorkflowBlocking = () => {
 
     try {
       const result = await fetchDifyBlockingApi(input);
-      setOutput(result.result || '');
+      setOutput(result || '');
     } catch (error) {
       console.error('API呼び出しエラー', error);
       setOutput('エラーが発生しました');
